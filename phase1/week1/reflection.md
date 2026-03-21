@@ -1,0 +1,1 @@
+I had a refresher on lists and dictionaries, There is a long way to go but I am willing to push through. This week I built a fully functional CLI To-Do app in Python from scratch — with file persistence, error handling, and a live interactive menu. Every line of code reviewed, broken, fixed, and pushed to GitHub.What I found hardest was understanding for loops and while loops
