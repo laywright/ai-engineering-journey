@@ -1,2 +1,0 @@
-1|Go hiking|1
-2|go swimminh|0
