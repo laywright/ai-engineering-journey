@@ -74,11 +74,17 @@ class TaskManager:
             elif choice == "2":
                 self.view_tasks()
             elif choice == "3":
-                task_id = int(input("Enter task id to complete: "))
-                self.complete_task(task_id)
+                try:
+                    task_id = int(input("Enter task id to complete: "))
+                    self.complete_task(task_id)
+                except ValueError:
+                    print("Invalid task id. Please enter a number.")
             elif choice == "4":
-                task_id = int(input("Enter task id to delete: "))
-                self.delete_task(task_id)
+                try:
+                    task_id = int(input("Enter task id to delete: "))
+                    self.delete_task(task_id)
+                except ValueError:
+                    print("Invalid task id. Please enter a number.")
             elif choice == "5":
                 self.save_tasks("tasks.txt")
                 print("Goodbye!")
