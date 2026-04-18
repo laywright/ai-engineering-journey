@@ -10,13 +10,30 @@ soup = BeautifulSoup(response.text, "html.parser")
 books = soup.find_all("article", class_="product_pod")
 print(len(books))  # should print 20
 
-import requests
-from bs4 import BeautifulSoup
-
-response = requests.get("http://books.toscrape.com")
-soup = BeautifulSoup(response.text, "html.parser")
-books = soup.find_all("article", class_="product_pod")
+# Step 4 — extract data from each book
 for book in books:
-    title = book.h3.a["title"]
+    # Extract title
+    title = book.find("h3").find("a")["title"]
+    
+    # Extract price
     price = book.find("p", class_="price_color").text
-    print(f"{title} - {price}")
+    
+    # Extract rating
+    rating = book.find("p", class_="star-rating")["class"][1]
+    
+    print(f"{title} | {price} | {rating}")
+
+import csv
+
+# Step 5 — save to CSV
+with open("books.csv", "w", newline="", encoding="utf-8-sig") as f:
+    writer = csv.writer(f)
+    writer.writerow(["Title", "Price", "Rating"])  # header row
+    
+    for book in books:
+        title = book.find("h3").find("a")["title"]
+        price = book.find("p", class_="price_color").text
+        rating = book.find("p", class_="star-rating")["class"][1]
+        writer.writerow([title, price, rating])
+
+print("Scraping complete. Data saved to books.csv")
