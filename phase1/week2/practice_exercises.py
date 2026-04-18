@@ -48,3 +48,13 @@ for bus in fleet:
 #         Expected: {"bus": "bus_05", ...}
 best_bus = max(fleet, key=lambda bus: bus["battery"])
 print(best_bus)
+
+
+import requests
+from bs4 import BeautifulSoup
+response = requests.get("http://books.toscrape.com")
+print(response.status_code)  #
+soup = BeautifulSoup(response.text, "html.parser")
+# Step 3 — find elements
+books = soup.find_all("article", class_="product_pod")
+print(len(books))  # should print 20

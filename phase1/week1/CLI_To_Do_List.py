@@ -79,14 +79,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-# Test them
-add_task(tasks, "Check battery levels on Route A1")
-add_task(tasks, "Review charging schedule for fleet")
-add_task(tasks, "Submit route optimisation report")
-add_task(tasks, "Schedule maintenance for bus_03")
-add_task(tasks, "Update driver training materials")
-view_tasks(tasks)
-complete_task(tasks, 3)
-delete_task(tasks, 1)
-view_tasks(tasks)
